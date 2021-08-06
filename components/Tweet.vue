@@ -25,18 +25,22 @@
           >
             <div class="flex lg:flex-col text-left">
               <div class="flex">
-                <span class="flex font-semibold text-sm">
-                  {{ trimmedAuthor }}
-                  <img
-                    v-if="userInfo.verified"
-                    class="h-3 w-3 ml-1 mt-1"
-                    src="/images/Twitter_Verified_Badge.svg"
-                  />
-                </span>
+                <a :href="`https://twitter.com/${ tweet.AuthorHandle }`">
+                  <div class="group flex">
+                    <span class="flex font-semibold text-sm group-hover:underline">
+                      {{ trimmedAuthor }}
+                      <img
+                        v-if="userInfo.verified"
+                        class="h-3 w-3 ml-1 mt-1"
+                        src="/images/Twitter_Verified_Badge.svg"
+                      />
+                    </span>
 
-                <span class="text-gray-500 text-sm ml-1">
-                  @{{ tweet.AuthorHandle }}
-                </span>
+                    <span class="text-gray-500 text-sm ml-1">
+                      @{{ tweet.AuthorHandle }}
+                    </span>
+                  </div>
+                </a>
                 <span class="mt-0.5 ml-1 text-left text-gray-500 text-xs">
                   · {{ getDate(tweet.TweetedAt) }}
                 </span>
